@@ -96,9 +96,9 @@ This portfolio is designed to communicate:
 
 Feel free to connect:
 
-- Email: your-email@example.com  
-- GitHub: https://github.com/your-username  
-- LinkedIn: https://linkedin.com/in/your-profile  
+- Email: sathvi2018@gmail.com 
+- GitHub: https://github.com/sathvik08bhat 
+- LinkedIn: www.linkedin.com/in/sathvik-bhat-025451267
 
 ---
 
@@ -106,7 +106,7 @@ Feel free to connect:
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/your-repo-name.git
+git clone https://github.com/your-username/Sathvik-Bhat-portfolio.git
 
 # Open the folder
 cd your-repo-name
