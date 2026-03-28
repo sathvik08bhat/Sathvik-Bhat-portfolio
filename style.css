@@ -244,7 +244,6 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
   position: relative;
   padding: 120px 24px 80px;
 }
@@ -263,10 +262,21 @@ button {
   z-index: 0;
 }
 
-.hero-content {
+.hero-inner {
   position: relative;
   z-index: 1;
-  max-width: 720px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+  max-width: var(--container-width);
+  width: 100%;
+}
+
+.hero-content {
+  flex: 1;
+  text-align: left;
+  max-width: 560px;
 }
 
 .hero-badge {
@@ -333,16 +343,198 @@ button {
   line-height: 1.8;
   margin-bottom: 40px;
   max-width: 520px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .hero-cta {
   display: flex;
   gap: 16px;
-  justify-content: center;
   flex-wrap: wrap;
 }
+
+/* ==============================
+   HERO PROFILE IMAGE
+   ============================== */
+
+.hero-image-wrapper {
+  position: relative;
+  width: 340px;
+  height: 340px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Entrance animation */
+  animation: heroImageEntrance 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
+}
+
+@keyframes heroImageEntrance {
+  0% {
+    opacity: 0;
+    transform: scale(0.7) translateY(30px);
+    filter: blur(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    filter: blur(0);
+  }
+}
+
+/* Pulsing glow behind image */
+.image-glow {
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(108, 99, 255, 0.2) 0%, rgba(78, 205, 196, 0.08) 50%, transparent 70%);
+  animation: glowPulse 4s ease-in-out infinite;
+  z-index: 0;
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+}
+
+/* Circular image container with animated gradient border */
+.hero-image-container {
+  position: relative;
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  padding: 4px;
+  background: conic-gradient(
+    from 0deg,
+    var(--accent-primary),
+    var(--accent-secondary),
+    var(--accent-warm),
+    var(--accent-primary),
+    var(--accent-secondary),
+    var(--accent-primary)
+  );
+  animation: rotateBorder 6s linear infinite, imageFloat 6s ease-in-out infinite;
+  z-index: 2;
+}
+
+@keyframes rotateBorder {
+  0% { filter: hue-rotate(0deg); }
+  100% { filter: hue-rotate(360deg); }
+}
+
+@keyframes imageFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+.hero-profile-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+  border: 3px solid var(--bg-primary);
+}
+
+/* Orbit rings */
+.orbit-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid transparent;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.orbit-ring-1 {
+  width: 300px;
+  height: 300px;
+  border-color: rgba(108, 99, 255, 0.12);
+  animation: orbitSpin1 20s linear infinite;
+}
+
+.orbit-ring-2 {
+  width: 340px;
+  height: 340px;
+  border-color: rgba(78, 205, 196, 0.08);
+  animation: orbitSpin2 25s linear infinite reverse;
+  border-style: dashed;
+}
+
+.orbit-ring-3 {
+  width: 280px;
+  height: 280px;
+  border-color: rgba(255, 107, 107, 0.06);
+  animation: orbitSpin3 15s linear infinite;
+}
+
+@keyframes orbitSpin1 {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes orbitSpin2 {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes orbitSpin3 {
+  0% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(180deg) scale(1.03); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+
+/* Orbit dots — small circling particles */
+.orbit-dot {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  z-index: 3;
+}
+
+.orbit-dot-1 {
+  background: var(--accent-primary);
+  box-shadow: 0 0 10px var(--accent-primary), 0 0 20px rgba(108, 99, 255, 0.3);
+  animation: orbitPath1 20s linear infinite;
+}
+
+.orbit-dot-2 {
+  background: var(--accent-secondary);
+  box-shadow: 0 0 10px var(--accent-secondary), 0 0 20px rgba(78, 205, 196, 0.3);
+  width: 5px;
+  height: 5px;
+  animation: orbitPath2 25s linear infinite;
+}
+
+.orbit-dot-3 {
+  background: var(--accent-warm);
+  box-shadow: 0 0 10px var(--accent-warm), 0 0 20px rgba(255, 107, 107, 0.3);
+  width: 4px;
+  height: 4px;
+  animation: orbitPath3 15s linear infinite;
+}
+
+/* Circular orbit paths using offset-path or transform origins */
+@keyframes orbitPath1 {
+  0%   { transform: rotate(0deg)   translateX(150px) rotate(0deg); }
+  100% { transform: rotate(360deg) translateX(150px) rotate(-360deg); }
+}
+
+@keyframes orbitPath2 {
+  0%   { transform: rotate(0deg)   translateX(170px) rotate(0deg); }
+  100% { transform: rotate(-360deg) translateX(170px) rotate(360deg); }
+}
+
+@keyframes orbitPath3 {
+  0%   { transform: rotate(0deg)   translateX(140px) rotate(0deg); }
+  100% { transform: rotate(360deg) translateX(140px) rotate(-360deg); }
+}
+
 
 /* Buttons */
 .btn-primary {
@@ -979,6 +1171,58 @@ button {
     --section-padding: 80px 0;
   }
 
+  .hero-inner {
+    flex-direction: column-reverse;
+    text-align: center;
+    gap: 40px;
+  }
+
+  .hero-content {
+    text-align: center;
+    max-width: 100%;
+  }
+
+  .hero-cta {
+    justify-content: center;
+  }
+
+  .hero-description {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-image-wrapper {
+    width: 280px;
+    height: 280px;
+  }
+
+  .hero-image-container {
+    width: 200px;
+    height: 200px;
+  }
+
+  .image-glow {
+    width: 220px;
+    height: 220px;
+  }
+
+  .orbit-ring-1 { width: 250px; height: 250px; }
+  .orbit-ring-2 { width: 280px; height: 280px; }
+  .orbit-ring-3 { width: 230px; height: 230px; }
+
+  @keyframes orbitPath1 {
+    0%   { transform: rotate(0deg)   translateX(125px) rotate(0deg); }
+    100% { transform: rotate(360deg) translateX(125px) rotate(-360deg); }
+  }
+  @keyframes orbitPath2 {
+    0%   { transform: rotate(0deg)   translateX(140px) rotate(0deg); }
+    100% { transform: rotate(-360deg) translateX(140px) rotate(360deg); }
+  }
+  @keyframes orbitPath3 {
+    0%   { transform: rotate(0deg)   translateX(115px) rotate(0deg); }
+    100% { transform: rotate(360deg) translateX(115px) rotate(-360deg); }
+  }
+
   .about-content {
     grid-template-columns: 1fr;
     gap: 40px;
@@ -1047,6 +1291,25 @@ button {
   .hero-name {
     letter-spacing: -1px;
   }
+
+  .hero-image-wrapper {
+    width: 240px;
+    height: 240px;
+  }
+
+  .hero-image-container {
+    width: 170px;
+    height: 170px;
+  }
+
+  .image-glow {
+    width: 190px;
+    height: 190px;
+  }
+
+  .orbit-ring-1 { width: 210px; height: 210px; }
+  .orbit-ring-2 { width: 240px; height: 240px; }
+  .orbit-ring-3 { width: 195px; height: 195px; }
 
   .about-stats {
     grid-template-columns: 1fr 1fr;
