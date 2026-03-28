@@ -1,2 +1,2 @@
-# Sathvik-Bhar-portfolio
+# Sathvik-Bhat-portfolio
 My Portfolio
