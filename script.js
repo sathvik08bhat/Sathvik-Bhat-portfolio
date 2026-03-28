@@ -12,25 +12,11 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* ==============================
-   NAVBAR — Scroll behavior
+   NAVBAR — Fixed at bottom
    ============================== */
 
 function initNavbar() {
-  const navbar = document.getElementById('navbar');
-  let lastScroll = 0;
-
-  window.addEventListener('scroll', () => {
-    const currentScroll = window.scrollY;
-
-    // Add/remove scrolled class for background blur
-    if (currentScroll > 50) {
-      navbar.classList.add('scrolled');
-    } else {
-      navbar.classList.remove('scrolled');
-    }
-
-    lastScroll = currentScroll;
-  }, { passive: true });
+  // Navbar is fixed at the bottom via CSS, no scroll behavior needed
 }
 
 /* ==============================
@@ -39,20 +25,20 @@ function initNavbar() {
 
 function initMobileNav() {
   const toggle = document.getElementById('nav-toggle');
-  const navLinks = document.getElementById('nav-links');
+  const navPill = document.querySelector('.nav-pill');
 
-  if (!toggle || !navLinks) return;
+  if (!toggle || !navPill) return;
 
   toggle.addEventListener('click', () => {
     toggle.classList.toggle('active');
-    navLinks.classList.toggle('active');
+    navPill.classList.toggle('active');
   });
 
   // Close nav when a link is clicked
-  navLinks.querySelectorAll('a').forEach(link => {
+  navPill.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
       toggle.classList.remove('active');
-      navLinks.classList.remove('active');
+      navPill.classList.remove('active');
     });
   });
 }
