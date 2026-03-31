@@ -298,9 +298,11 @@ button {
    NAVBAR — Floating Pill
    ============================== */
 
+/* ── Base navbar ── */
 .navbar {
   position: fixed;
-  top: 0px;
+  top: 0;
+  left: 0;
   width: 100%;
   z-index: 1000;
 }
@@ -318,8 +320,6 @@ button {
   gap: 24px;
 }
 
-
-
 .nav-pill a {
   font-size: 1rem;
   padding: 8px 12px;
@@ -334,64 +334,42 @@ button {
   background: rgba(255, 255, 255, 0.05);
 }
 
+/* ── Scrolled state (desktop) ── */
 .navbar.scrolled {
   position: fixed;
   top: 10px;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 1000;
+  width: 70%;
   display: flex;
   align-items: baseline;
   gap: 4px;
-  width: 70%;
-  padding: 8px 12px;
+  padding: 8px 16px;
   background: rgba(14, 14, 24, 0.65);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: var(--radius-pill);
+  border-radius: 40px;
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
   font-size: 0.82rem;
-  color: var(--text-secondary);
-  padding: 8px 16px;
-  border-radius: 40px;
-  transition: var(--transition-smooth);
   font-weight: 450;
+  color: var(--text-secondary);
   white-space: nowrap;
+  transition: var(--transition-smooth);
 }
 
-
-/* Mobile toggle */
+/* ── Mobile toggle (hidden by default) ── */
 .nav-toggle {
   display: none;
-  flex-direction: column;
-  gap: 5px;
-  padding: 10px;
-  position: fixed;
-  bottom: 32px;
-  right: 24px;
-  z-index: 1001;
-  background: rgba(14, 14, 24, 0.65);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 12px;
-}
-
-.nav-toggle span {
-  width: 20px;
-  height: 2px;
-  background: var(--text-primary);
-  border-radius: 2px;
-  transition: var(--transition-fast);
 }
 
 /* ── Mobile bottom bar ── */
 @media (max-width: 768px) {
 
-  /* Reset and move navbar to bottom */
+  /* Both normal and scrolled: pin to bottom */
   .navbar,
   .navbar.scrolled {
+    position: fixed !important;
     top: unset !important;
     bottom: 0 !important;
     left: 0 !important;
@@ -401,26 +379,23 @@ button {
     border-radius: 0 !important;
     background: transparent !important;
     backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
     border: none !important;
     box-shadow: none !important;
+    display: block !important;
   }
 
-  /* Hide name */
+  /* Hide name on mobile */
   .name-navbar {
     display: none;
   }
 
-  /* Hide hamburger toggle */
-  .nav-toggle {
-    display: none;
-  }
-
-  /* Bottom bar styles on nav-pill */
+  /* The actual visible bar */
   .nav-pill,
   .navbar.scrolled .nav-pill {
     width: 100% !important;
     justify-content: space-around !important;
-    padding: 10px 8px !important;
+    padding: 10px 4px !important;
     gap: 0 !important;
     border-radius: 0 !important;
     background: rgba(14, 14, 24, 0.95) !important;
@@ -430,25 +405,28 @@ button {
     box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3) !important;
   }
 
-  .page-navbar {
-    display: flex;
-    width: 100%;
-    justify-content: space-around;
-    align-items: center;
-    gap: 0;
+  /* Links spread evenly */
+  .page-navbar,
+  .navbar.scrolled .page-navbar {
+    display: flex !important;
+    width: 100% !important;
+    justify-content: space-around !important;
+    align-items: center !important;
+    gap: 0 !important;
   }
 
+  /* Shrink link text */
   .page-navbar a,
   .navbar.scrolled .page-navbar a {
     font-size: 0.62rem !important;
-    padding: 4px 6px !important;
+    padding: 4px 2px !important;
     text-align: center !important;
     white-space: nowrap !important;
   }
 
-  /* Stop content hiding behind bottom bar */
+  /* Prevent content hiding behind bar */
   body {
-    padding-bottom: 60px;
+    padding-bottom: 56px;
   }
 }
 
