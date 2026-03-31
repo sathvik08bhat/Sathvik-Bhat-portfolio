@@ -65,6 +65,13 @@ body {
   overflow-x: hidden;
 }
 
+@media (max-width: 768px) {
+  body {
+    padding-bottom: 60px;
+    /* same height as the bar */
+  }
+}
+
 a {
   text-decoration: none;
   color: inherit;
@@ -378,6 +385,57 @@ button {
   background: var(--text-primary);
   border-radius: 2px;
   transition: var(--transition-fast);
+}
+
+/* ── Mobile bottom bar ── */
+@media (max-width: 768px) {
+
+  /* Hide the full navbar */
+  .navbar {
+    top: unset;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 0;
+  }
+
+  /* Hide the name */
+  .name-navbar {
+    display: none;
+  }
+
+  /* Hide the hamburger toggle if you have one */
+  .nav-toggle {
+    display: none;
+  }
+
+  /* Turn nav-pill into a bottom bar */
+  .nav-pill {
+    width: 100%;
+    justify-content: space-around;
+    padding: 10px 8px;
+    gap: 0;
+    border-radius: 0;
+    /* no rounded corners */
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(14, 14, 24, 0.92);
+  }
+
+  /* Stack links horizontally and shrink text */
+  .page-navbar {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    gap: 0;
+  }
+
+  .page-navbar a {
+    font-size: 0.65rem;
+    padding: 4px 6px;
+    text-align: center;
+    white-space: nowrap;
+  }
 }
 
 /* ==============================
