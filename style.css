@@ -263,10 +263,29 @@ button {
 .hero-profile-img {
   width: clamp(450px, 20vw, 300px);
   height: auto;
-  object-fit: cover;
-  object-position: top center;
+  object-fit: contain;
+  object-position: center;
+  transform: translateY(15%);
   display: block;
-  filter: brightness(1.02);
+  filter: brightness(0.82);
+}
+
+.hero-image {
+  animation: comeUp 0.8s ease forwards;
+}
+
+@keyframes comeUp {
+  from {
+    opacity: 0;
+    transform: translateY(60px);
+    /* starts 60px below */
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    /* lands in normal position */
+  }
 }
 
 /* ==============================
