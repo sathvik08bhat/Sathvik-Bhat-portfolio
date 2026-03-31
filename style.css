@@ -4,8 +4,8 @@
 
 :root {
   /* Darker color palette */
-  --bg-primary: #262639;
-  --bg-secondary: #514476;
+  --bg-primary: #191223;
+  --bg-secondary: #2b2049;
   --bg-card: rgba(255, 255, 255, 0.02);
   --bg-glass: rgba(255, 255, 255, 0.035);
   --border-glass: rgba(255, 255, 255, 0.06);
@@ -58,7 +58,7 @@ html {
 
 body {
   font-family: var(--font-primary);
-  background: linear-gradient(155deg, #262639 0%, #514476 30%, #100e21 60%, #0e0e18 100%);
+  background: rgb(7, 9, 12);
   background-attachment: fixed;
   color: var(--text-primary);
   line-height: 1.7;
@@ -261,7 +261,7 @@ button {
 }
 
 .hero-profile-img {
-  width: clamp(600px, 26vw, 400px);
+  width: clamp(450px, 20vw, 300px);
   height: auto;
   object-fit: cover;
   object-position: top center;
@@ -275,16 +275,50 @@ button {
 
 .navbar {
   position: fixed;
-  bottom: 32px;
-  left: 50%;
-  transform: translateX(-50%);
+  top: 0px;
+  width: 100%;
   z-index: 1000;
 }
 
 .nav-pill {
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 8px 24px;
+}
+
+.page-navbar {
+  display: flex;
+  gap: 24px;
+}
+
+
+
+.nav-pill a {
+  font-size: 1rem;
+  padding: 8px 12px;
+  transition: var(--transition-smooth);
+  font-weight: 450;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+.nav-pill a:hover {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.navbar.scrolled {
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  display: flex;
   align-items: baseline;
   gap: 4px;
+  width: 70%;
   padding: 8px 12px;
   background: rgba(14, 14, 24, 0.65);
   backdrop-filter: blur(20px);
@@ -292,9 +326,6 @@ button {
   border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: var(--radius-pill);
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
-}
-
-.nav-pill a {
   font-size: 0.82rem;
   color: var(--text-secondary);
   padding: 8px 16px;
@@ -303,10 +334,6 @@ button {
   font-weight: 450;
   white-space: nowrap;
 }
-
-.nav-pill a:hover {
-  color: var(--text-primary);
-  background: rgba(255, 255, 255, 0.05);
 }
 
 /* Mobile toggle */

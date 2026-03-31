@@ -14,10 +14,17 @@ document.addEventListener('DOMContentLoaded', () => {
 /* ==============================
    NAVBAR — Fixed at bottom
    ============================== */
+// Real page: listen on window scroll
+
 
 function initNavbar() {
   // Navbar is fixed at the bottom via CSS, no scroll behavior needed
 }
+
+window.addEventListener('scroll', () => {
+  const nav = document.getElementById('navbar');
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+});
 
 /* ==============================
    MOBILE NAVIGATION
