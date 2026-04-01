@@ -11,23 +11,28 @@ document.addEventListener('DOMContentLoaded', () => {
   initContactForm();
 });
 
-const glow = document.createElement("div");
-glow.classList.add("hero-glow");
-document.querySelector(".hero").appendChild(glow);
+const hero = document.querySelector(".hero");
+if (hero) {
+  const glow = document.createElement("div");
+  glow.classList.add("hero-glow");
+  hero.appendChild(glow);
 
-document.addEventListener("mousemove", (e) => {
-  glow.style.left = e.clientX + "px";
-  glow.style.top = e.clientY + "px";
-});
+  document.addEventListener("mousemove", (e) => {
+    glow.style.left = e.clientX + "px";
+    glow.style.top = e.clientY + "px";
+  });
+}
 
 const name = document.querySelector(".hero-name");
 
-document.addEventListener("mousemove", (e) => {
-  const x = (e.clientX / window.innerWidth - 0.5) * 20;
-  const y = (e.clientY / window.innerHeight - 0.5) * 20;
+if (name) {
+  document.addEventListener("mousemove", (e) => {
+    const x = (e.clientX / window.innerWidth - 0.5) * 20;
+    const y = (e.clientY / window.innerHeight - 0.5) * 20;
 
-  name.style.transform = `translate(${x}px, ${y}px)`;
-});
+    name.style.transform = `translate(${x}px, ${y}px)`;
+  });
+}
 
 
 /* ==============================
