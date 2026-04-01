@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Skills & Projects — Sathvik Bhat</title>
+  <title>Skills & Projects - Sathvik Bhat</title>
   <meta name="description"
     content="Skills and Projects of Sathvik Bhat. Deep dive into technical toolkit and built projects." />
   <meta name="keywords" content="skills, projects, developer, portfolio, DSA, web development" />
@@ -19,38 +19,12 @@
 
   <!-- Stylesheet -->
   <link rel="stylesheet" href="style.css" />
-  <style>
-    /* Ensure the navbar stays floating since skills page has no top hero to scroll past */
-    .navbar {
-      background: rgba(14, 14, 24, 0.65) !important;
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      border-radius: 40px;
-      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
-      top: 10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 70%;
-      padding: 8px 16px;
-    }
-
-    .navbar .nav-pill {
-      display: flex;
-      align-items: baseline;
-      gap: 4px;
-    }
-
-    .navbar a {
-      font-size: 0.82rem;
-    }
-  </style>
 </head>
 
 <body>
 
   <!-- Floating pill navbar -->
-  <nav class="navbar scrolled" id="navbar">
+  <nav class="navbar" id="navbar">
     <div class="nav-pill" id="nav-links">
       <div class="name-navbar" id="name-navbar">
         <h3><a href="index.html">Sathvik Bhat</a></h3>
@@ -59,8 +33,8 @@
         <a href="index.html#about">About</a>
         <a href="#skills">Skills</a>
         <a href="#projects">Projects</a>
-        <a href="index.html#value">Why Me</a>
-        <a href="index.html#focus">Focus</a>
+        <a href="focus.html">Focus</a>
+        <a href="achievements.html">Achievements</a>
         <a href="index.html#contact">Contact</a>
       </div>
     </div>
@@ -73,10 +47,11 @@
        ================================ -->
   <section class="section" id="skills" style="padding-top: 150px; min-height: 80vh;">
     <div class="container">
-      <span class="section-label reveal">Capabilities</span>
-      <h2 class="section-title reveal">Technical <span class="gradient-text">Skills</span></h2>
+      <span class="section-label reveal">Expertise</span>
+      <h2 class="section-title reveal">Engineering <span class="gradient-text">Arsenal</span></h2>
       <p class="section-subtitle reveal" style="margin-bottom: 50px;">
-        My technical toolkit, structured in unique dynamic boxes. Always expanding depth in every area.
+        A deep dive into the languages, architectures, and tools I use to build robust, scalable solutions. Not just
+        buzzwords, practical knowledge forged through consistent building.
       </p>
 
       <div class="skills-box-grid">
@@ -110,6 +85,7 @@
               <li>HTML</li>
               <li>CSS</li>
               <li>JavaScript</li>
+              <li>React.Js</li>
             </ul>
           </div>
         </div>
@@ -121,11 +97,28 @@
               <li>Git / GitHub</li>
               <li>VS Code</li>
               <li>Terminal / Linux OS</li>
-              <li>AntiGravity</li>
             </ul>
           </div>
         </div>
       </div>
+
+      <!-- Resume Download Area -->
+      <div class="resume-banner reveal reveal-delay-2">
+        <div class="resume-banner-glow"></div>
+        <div class="resume-content">
+          <h3>Full Outline</h3>
+          <p>Get a comprehensive overview of my experience, education, and technical background.</p>
+        </div>
+        <a href="resume.pdf" target="_blank" class="btn-primary resume-btn" download>
+          Download Resume
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 6px;">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+        </a>
+      </div>
+
     </div>
   </section>
 
@@ -147,30 +140,16 @@
             <span class="project-tag">Web Development</span>
             <h3 class="project-title">Portfolio v2.0</h3>
             <p class="project-description">
-              A high-performance, responsive personal portfolio built with bare HTML, CSS, and JS. Features advanced CSS animations, scroll effects, and a dynamic glassmorphic UI base.
+              A high-performance, responsive personal portfolio built with bare HTML, CSS, and JS. Features advanced CSS
+              animations, scroll effects, and a dynamic glassmorphic UI base.
             </p>
             <div class="project-tech">
               <span>HTML</span><span>CSS</span><span>JavaScript</span>
             </div>
             <div class="project-links">
-              <a href="#" class="btn-secondary" style="padding: 8px 16px; font-size: 0.8rem; border-radius: 8px;">Source Code &rarr;</a>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Project 2 -->
-        <div class="project-card reveal reveal-delay-2">
-          <div class="project-content">
-            <span class="project-tag">Machine Learning</span>
-            <h3 class="project-title">Sign Language Translator</h3>
-            <p class="project-description">
-              A 2D-CNN-based model designed to translate Indian Sign Language specifically to Odia, built exploring data processing, computer vision, and neural network architectures.
-            </p>
-            <div class="project-tech">
-              <span>Python</span><span>TensorFlow</span><span>OpenCV</span>
-            </div>
-            <div class="project-links">
-              <a href="#" class="btn-secondary" style="padding: 8px 16px; font-size: 0.8rem; border-radius: 8px;">Source Code &rarr;</a>
+              <a href="https://github.com/sathvik08bhat/sathvik-bhat-portfolio" target="_blank"
+                rel="noopener noreferrer" class="btn-secondary"
+                style="padding: 8px 16px; font-size: 0.8rem; border-radius: 8px;">Source Code &rarr;</a>
             </div>
           </div>
         </div>
