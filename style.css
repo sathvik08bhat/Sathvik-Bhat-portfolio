@@ -449,14 +449,14 @@ button {
   transform: translateX(-50%);
   width: 100%;
   max-width: 100%;
-  z-index: 1000;
+  z-index: 9999; /* Higher z-index for visibility */
   background: transparent;
   backdrop-filter: blur(0px);
   -webkit-backdrop-filter: blur(0px);
   border: 1px solid transparent;
   border-radius: 0px;
   padding: 0;
-  transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1); /* Smooth robust curve */
+  transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .nav-pill {
@@ -505,23 +505,23 @@ button {
 /* ── Scrolled state (desktop) ── */
 .navbar.scrolled {
   position: fixed;
-  top: 10px;
+  top: 15px; /* Pushed slightly more from top */
   left: 50%;
   transform: translateX(-50%);
   width: max-content;
   max-width: 95%;
   display: flex;
-  align-items: center; /* Center vertically */
+  align-items: center;
   justify-content: center;
-  padding: 0; /* Remove redundant padding, let nav-pill handle it */
-  background: rgba(14, 14, 24, 0.65);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 0;
+  background: rgba(14, 14, 24, 0.7);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 40px;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
-  z-index: 1000;
-  overflow: hidden; /* Keep everything inside rounded corners */
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+  overflow: hidden;
 }
 
 .navbar.scrolled .nav-pill {
@@ -547,19 +547,23 @@ button {
   .navbar,
   .navbar.scrolled {
     position: fixed !important;
-    top: unset !important;
+    top: auto !important;
     bottom: 0 !important;
     left: 0 !important;
     transform: none !important;
     width: 100% !important;
+    max-width: 100% !important;
     padding: 0 !important;
     border-radius: 0 !important;
-    background: transparent !important;
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
+    background: rgba(14, 14, 24, 0.95) !important; /* Ensure background is directly on the bar */
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
     border: none !important;
-    box-shadow: none !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3) !important;
     display: block !important;
+    z-index: 99999 !important;
+    overflow: visible !important;
   }
 
   /* Hide name on mobile */
@@ -572,21 +576,18 @@ button {
   .navbar.scrolled .nav-pill {
     width: 100% !important;
     justify-content: space-around !important;
-    padding: 10px 4px !important;
+    padding: 12px 10px !important;
     gap: 0 !important;
-    border-radius: 0 !important;
-    background: rgba(14, 14, 24, 0.95) !important;
-    backdrop-filter: blur(20px) !important;
-    -webkit-backdrop-filter: blur(20px) !important;
-    border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
-    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3) !important;
+    border: none !important;
+    background: transparent !important; /* Managed by parent .navbar */
+    box-shadow: none !important;
   }
 
   /* Links spread evenly */
   .page-navbar,
   .navbar.scrolled .page-navbar {
     display: flex !important;
-    width: 100% !important;
+    flex: 1 !important;
     justify-content: space-around !important;
     align-items: center !important;
     gap: 0 !important;
@@ -595,15 +596,20 @@ button {
   /* Shrink link text */
   .page-navbar a,
   .navbar.scrolled .page-navbar a {
-    font-size: 0.62rem !important;
-    padding: 4px 2px !important;
+    font-size: 0.7rem !important; /* Slightly larger for better readability */
+    padding: 6px 4px !important;
     text-align: center !important;
     white-space: nowrap !important;
+    border-radius: 8px !important;
+  }
+
+  .theme-toggle {
+    margin-right: 10px !important;
   }
 
   /* Prevent content hiding behind bar */
   body {
-    padding-bottom: 56px;
+    padding-bottom: 70px !important;
   }
 }
 
@@ -2538,11 +2544,16 @@ button {
 
 /* Mobile navbar overrides */
 @media (max-width: 768px) {
-  [data-theme="light"] .nav-pill,
-  [data-theme="light"] .navbar.scrolled .nav-pill {
-    background: rgba(255, 255, 255, 0.95) !important;
-    border-top: 1px solid rgba(0, 0, 0, 0.08) !important;
-    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08) !important;
+  [data-theme="light"] .navbar,
+  [data-theme="light"] .navbar.scrolled {
+    background: rgba(255, 255, 255, 0.98) !important;
+    border-top: 1px solid rgba(0, 0, 0, 0.1) !important;
+    box-shadow: 0 -4px 25px rgba(0, 0, 0, 0.08) !important;
+  }
+  
+  [data-theme="light"] .page-navbar a,
+  [data-theme="light"] .navbar.scrolled .page-navbar a {
+    color: #333 !important;
   }
 }
 
