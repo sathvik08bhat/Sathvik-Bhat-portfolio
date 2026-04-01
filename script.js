@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initScrollReveal();
   initSmoothScroll();
   initContactForm();
+  initThemeToggle();
 });
 
 const hero = document.querySelector(".hero");
@@ -180,29 +181,17 @@ function initContactForm() {
   form.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    const name = document.getElementById('form-name').value.trim();
-    const email = document.getElementById('form-email').value.trim();
-    const message = document.getElementById('form-message').value.trim();
+    const name = document.getElementById('form-name')?.value.trim();
+    const email = document.getElementById('form-email')?.value.trim();
+    const message = document.getElementById('form-message')?.value.trim();
     const statusEl = document.getElementById('form-status');
 
     // Reset status
     statusEl.className = 'form-status';
     statusEl.style.display = 'none';
 
-    // Basic validation
-    if (!name || !email || !message) {
-      showStatus(statusEl, 'Please fill in all fields.', 'error');
-      return;
-    }
-
-    if (!isValidEmail(email)) {
-      showStatus(statusEl, 'Please enter a valid email address.', 'error');
-      return;
-    }
-
     // Simulate successful submission
-    // In production, replace with actual API call (e.g., Formspree, EmailJS)
-    showStatus(statusEl, 'Message sent! I\'ll get back to you soon.', 'success');
+    showStatus(statusEl, "Message sent! I'll get back to you soon.", 'success');
     form.reset();
 
     // Auto-hide success message after 5s
@@ -220,4 +209,41 @@ function showStatus(el, message, type) {
 
 function isValidEmail(email) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+/* ==============================
+   THEME TOGGLE
+   ============================== */
+
+// Execute immediately to prevent FOUC (Flash of Unstyled Content)
+(function prioritizeTheme() {
+  const savedTheme = localStorage.getItem('theme') || 'dark';
+  document.documentElement.setAttribute('data-theme', savedTheme);
+})();
+
+function initThemeToggle() {
+  const toggleBtn = document.getElementById('theme-toggle-btn');
+  const themeIcon = document.getElementById('theme-icon');
+  
+  if (!toggleBtn || !themeIcon) return;
+
+  const currentTheme = document.documentElement.getAttribute('data-theme');
+  if (currentTheme === 'light') {
+    themeIcon.classList.replace('ph-sun', 'ph-moon');
+  }
+
+  toggleBtn.addEventListener('click', () => {
+    let theme = document.documentElement.getAttribute('data-theme');
+    
+    if (theme === 'dark') {
+      theme = 'light';
+      themeIcon.classList.replace('ph-sun', 'ph-moon');
+    } else {
+      theme = 'dark';
+      themeIcon.classList.replace('ph-moon', 'ph-sun');
+    }
+
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+  });
 }

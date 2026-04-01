@@ -58,10 +58,13 @@
           <div class="page-navbar">
             <a href="#about">About</a>
             <a href="skills-projects.html">Skills</a>
-            <a href="skills-projects.html#projects">Projects</a>
+            <a href="#experience">Experience</a>
             <a href="focus.html">Focus</a>
             <a href="achievements.html">Achievements</a>
-            <a href="#contact">Contact</a>
+            <a href="contact.html">Contact</a>
+          </div>
+          <div class="theme-toggle" id="theme-toggle-btn" title="Toggle Theme">
+            <i class="ph ph-sun" id="theme-icon"></i>
           </div>
         </div>
         <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
@@ -129,74 +132,33 @@
 
 
   <!-- ================================
-       CONTACT SECTION
+       EXPERIENCE SECTION
        ================================ -->
-  <section class="section" id="contact">
+  <section class="section" id="experience" style="padding-top: 60px;">
     <div class="container">
-      <span class="section-label reveal">Get In Touch</span>
-      <h2 class="section-title reveal">Let's <span class="gradient-text">connect</span></h2>
-      <p class="section-subtitle reveal">
-        Whether it's a collaboration, opportunity, or just a conversation
-        I'd like to hear from you.
-      </p>
+      <span class="section-label reveal">Professional Journey</span>
+      <h2 class="section-title reveal">My <span class="gradient-text">Experience</span></h2>
 
-      <div class="contact-wrapper">
-        <div class="contact-info reveal">
-          <h3>Reach out directly</h3>
-          <p>
-            I'm always open to connecting with developers, mentors, and
-            anyone building something interesting. Drop me a message
-            and I'll respond within 24 hours.
-          </p>
-
-          <div class="contact-links">
-            <a href="mailto:sathvi2018@gmail.com" class="contact-link" id="contact-email">
-              <span class="link-icon">✉️</span>
-              sathvi2018@gmail.com
-            </a>
-            <a href="https://github.com/sathvik08bhat" target="_blank" rel="noopener noreferrer" class="contact-link"
-              id="contact-github">
-              <span class="link-icon">⚙️</span>
-              GitHub
-            </a>
-            <a href="http://www.linkedin.com/in/sathvik-bhat-025451267" target="_blank" rel="noopener noreferrer"
-              class="contact-link" id="contact-linkedin">
-              <span class="link-icon">🔗</span>
-              LinkedIn
-            </a>
+      <a href="https://www.wemakescholars.com/" target="_blank" rel="noopener noreferrer" class="experience-card reveal reveal-delay-1">
+        <div class="exp-glow"></div>
+        <div class="exp-header">
+          <div class="exp-role">
+            <h3>Campus Ambassador</h3>
+            <span class="exp-company">WeMakeScholars</span>
           </div>
+          <div class="exp-duration">Jan 2025</div>
         </div>
-
-        <form class="contact-form reveal reveal-delay-2" id="contact-form">
-          <div class="form-group">
-            <label for="form-name">Name</label>
-            <input type="text" id="form-name" name="name" placeholder="Your name" required />
-          </div>
-
-          <div class="form-group">
-            <label for="form-email">Email</label>
-            <input type="email" id="form-email" name="email" placeholder="your@email.com" required />
-          </div>
-
-          <div class="form-group">
-            <label for="form-message">Message</label>
-            <textarea id="form-message" name="message" placeholder="What's on your mind?" required></textarea>
-          </div>
-
-          <div class="form-submit">
-            <button type="submit" class="btn-primary" id="form-submit-btn">
-              Send Message
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                stroke-linecap="round" stroke-linejoin="round">
-                <line x1="7" y1="17" x2="17" y2="7"></line>
-                <polyline points="7 7 17 7 17 17"></polyline>
-              </svg>
-            </button>
-          </div>
-
-          <div class="form-status" id="form-status"></div>
-        </form>
-      </div>
+        <div class="exp-body">
+          <p>
+            Spearheaded regional outreach and awareness campaigns for the <strong style="color: #fff; font-weight: 600;">HEST (Higher Education Scholarship Test)</strong> exam across the university network. Bridged the gap between ambitious students and global education funding by executing structured promotional drives.
+          </p>
+          <ul class="exp-bullets">
+            <li>Executed strategic on-ground and digital marketing initiatives to maximize exam participation.</li>
+            <li>Educated and onboarded students regarding premium international scholarship opportunities and loan structures.</li>
+            <li>Developed interpersonal and persuasion skills by presenting to large student batches, managing high-volume queries effectively.</li>
+          </ul>
+        </div>
+      </a>
     </div>
   </section>
 
@@ -205,11 +167,18 @@
        ================================ -->
   <footer class="footer">
     <div class="container">
-      <p>Built with focus &amp; discipline — &copy; 2026</p>
+      <p style="margin-bottom: 8px;">Built with focus &amp; discipline — &copy; 2026 Sathvik Bhat</p>
+      <div class="footer-policy-links" style="display: flex; justify-content: center; gap: 16px; margin-bottom: 20px;">
+        <a href="#" style="color: var(--text-muted); font-size: 0.8rem; text-decoration: none; transition: color 0.3s ease;" onmouseover="this.style.color='var(--accent-cyan)'" onmouseout="this.style.color='var(--text-muted)'">Terms of Service</a>
+        <span style="color: var(--border-glass); opacity: 0.5;">|</span>
+        <a href="#" style="color: var(--text-muted); font-size: 0.8rem; text-decoration: none; transition: color 0.3s ease;" onmouseover="this.style.color='var(--accent-cyan)'" onmouseout="this.style.color='var(--text-muted)'">Privacy Policy</a>
+        <span style="color: var(--border-glass); opacity: 0.5;">|</span>
+        <a href="#" style="color: var(--text-muted); font-size: 0.8rem; text-decoration: none; transition: color 0.3s ease;" onmouseover="this.style.color='var(--accent-cyan)'" onmouseout="this.style.color='var(--text-muted)'">Cookie Policy</a>
+      </div>
       <div class="footer-links">
         <a href="#hero">Top</a>
         <a href="#about">About</a>
-        <a href="#contact">Contact</a>
+        <a href="contact.html">Contact</a>
       </div>
     </div>
   </footer>

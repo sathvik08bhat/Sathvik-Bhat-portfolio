@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact - Sathvik Bhat</title>
+  <meta name="description"
+    content="Get in touch with Sathvik Bhat. Let's build the future." />
+  <meta name="author" content="Sathvik Bhat" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Inter:wght@300;400;450;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet" />
+
+  <!-- Phosphor Icons -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- Floating pill navbar -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-pill" id="nav-links">
+      <div class="name-navbar" id="name-navbar">
+        <h3><a href="index.html">Sathvik Bhat</a></h3>
+      </div>
+      <div class="page-navbar">
+        <a href="index.html#about">About</a>
+        <a href="skills-projects.html">Skills</a>
+        <a href="index.html#experience">Experience</a>
+        <a href="focus.html">Focus</a>
+        <a href="achievements.html">Achievements</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="theme-toggle" id="theme-toggle-btn" title="Toggle Theme">
+        <i class="ph ph-sun" id="theme-icon"></i>
+      </div>
+    </div>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+    </button>
+  </nav>
+
+  <!-- ================================
+       CRAZY CONTACT SECTION
+       ================================ -->
+  <main class="contact-page-wrapper">
+    <div class="contact-orb orb-1"></div>
+    <div class="contact-orb orb-2"></div>
+    <div class="container" style="position: relative; z-index: 5;">
+      
+      <div class="contact-glass-panel reveal">
+        
+        <!-- Left Side: Info & Bento -->
+        <div class="contact-crazy-info">
+          <h2>Let's build <span class="gradient-text">the future.</span></h2>
+          <p>Whether it's a strategic collaboration, a career opportunity, or an intricate technical challenge to solve together—I'm just a message away.</p>
+          
+          <div class="social-bento">
+            <a href="mailto:yoursathvik@gmail.com" class="social-card email">
+              <i class="ph ph-envelope-simple social-icon" style="color: var(--accent-purple);"></i>
+              <span>Email Me</span>
+            </a>
+            <a href="https://github.com/SathivkBhat" target="_blank" rel="noopener noreferrer" class="social-card">
+              <i class="ph ph-github-logo social-icon" style="color: #fff;"></i>
+              <span>GitHub</span>
+            </a>
+            <a href="https://www.linkedin.com/in/sathvik-bhat-a72266228" target="_blank" rel="noopener noreferrer" class="social-card">
+              <i class="ph ph-linkedin-logo social-icon" style="color: var(--accent-cyan);"></i>
+              <span>LinkedIn</span>
+            </a>
+            <a href="https://x.com/sathvik_bhat" target="_blank" rel="noopener noreferrer" class="social-card">
+              <i class="ph ph-twitter-logo social-icon" style="color: var(--text-primary);"></i>
+              <span>Twitter (X)</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Side: Form -->
+        <form class="contact-crazy-form" id="contact-form">
+          <div class="crazy-form-group">
+            <input type="text" id="name" class="crazy-input" required />
+            <label for="name" class="crazy-label">Your Name</label>
+          </div>
+          <div class="crazy-form-group">
+            <input type="email" id="email" class="crazy-input" required />
+            <label for="email" class="crazy-label">Email Address</label>
+          </div>
+          <div class="crazy-form-group" style="margin-top: 40px;">
+            <textarea id="message" class="crazy-input crazy-textarea" required></textarea>
+            <label for="message" class="crazy-label" style="top: -10px;">Your Message</label>
+          </div>
+          <button type="submit" class="crazy-submit">
+            Send Message <i class="ph ph-paper-plane-right" style="font-size: 1.2rem; margin-left: 8px;"></i>
+          </button>
+          <div id="form-status" class="form-status" style="margin-top: 20px; font-family: var(--font-mono); display: none;"></div>
+        </form>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- ================================
+       FOOTER
+       ================================ -->
+  <footer class="footer">
+    <div class="container">
+      <p style="margin-bottom: 8px;">Built with focus &amp; discipline — &copy; 2026 Sathvik Bhat</p>
+      <div class="footer-policy-links" style="display: flex; justify-content: center; gap: 16px; margin-bottom: 20px;">
+        <a href="#" style="color: var(--text-muted); font-size: 0.8rem; text-decoration: none; transition: color 0.3s ease;" onmouseover="this.style.color='var(--accent-cyan)'" onmouseout="this.style.color='var(--text-muted)'">Terms of Service</a>
+        <span style="color: var(--border-glass); opacity: 0.5;">|</span>
+        <a href="#" style="color: var(--text-muted); font-size: 0.8rem; text-decoration: none; transition: color 0.3s ease;" onmouseover="this.style.color='var(--accent-cyan)'" onmouseout="this.style.color='var(--text-muted)'">Privacy Policy</a>
+        <span style="color: var(--border-glass); opacity: 0.5;">|</span>
+        <a href="#" style="color: var(--text-muted); font-size: 0.8rem; text-decoration: none; transition: color 0.3s ease;" onmouseover="this.style.color='var(--accent-cyan)'" onmouseout="this.style.color='var(--text-muted)'">Cookie Policy</a>
+      </div>
+      <div class="footer-links">
+        <a href="index.html#hero">Home</a>
+        <a href="index.html#about">About</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="script.js"></script>
+</body>
+
+</html>
