@@ -56,6 +56,10 @@ html {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* ==============================
+   GLOBAL BACKGROUND SYSTEM
+   ============================== */
+
 body {
   font-family: var(--font-primary);
   background: rgb(7, 9, 12);
@@ -63,6 +67,46 @@ body {
   color: var(--text-primary);
   line-height: 1.7;
   overflow-x: hidden;
+  position: relative;
+}
+
+/* MAIN AMBIENT LAYER */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+
+  background:
+    radial-gradient(circle at 20% 30%, rgba(0, 255, 255, 0.08), transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(140, 0, 255, 0.08), transparent 40%);
+
+  animation: globalFloat 10s ease-in-out infinite alternate;
+}
+
+/* EXTRA DEPTH LAYER */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -3;
+
+  background:
+    radial-gradient(circle at 60% 40%, rgba(90, 122, 245, 0.06), transparent 50%),
+    radial-gradient(circle at 30% 80%, rgba(74, 198, 232, 0.05), transparent 50%);
+
+  filter: blur(60px);
+}
+
+/* ANIMATION */
+@keyframes globalFloat {
+  from {
+    transform: translateY(0px) scale(1);
+  }
+
+  to {
+    transform: translateY(-60px) scale(1.05);
+  }
 }
 
 @media (max-width: 768px) {
@@ -187,26 +231,6 @@ button {
   min-height: 100vh;
 }
 
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 20% 30%, rgba(0, 255, 255, 0.08), transparent 40%),
-    radial-gradient(circle at 80% 70%, rgba(140, 0, 255, 0.08), transparent 40%);
-  z-index: 0;
-  animation: floatBg 8s ease-in-out infinite alternate;
-}
-
-@keyframes floatBg {
-  from {
-    transform: translateY(0px);
-  }
-
-  to {
-    transform: translateY(-40px);
-  }
-}
-
 .hero-content {
   max-width: 800px;
   padding: 0;
@@ -227,6 +251,15 @@ button {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+.section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.02), transparent 70%);
+  pointer-events: none;
 }
 
 .hero-name {
