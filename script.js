@@ -4,7 +4,6 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   initNavbar();
-  initMobileNav();
   initTypingAnimation();
   initScrollReveal();
   initSmoothScroll();
@@ -50,30 +49,6 @@ window.addEventListener('scroll', () => {
   const nav = document.getElementById('navbar');
   nav.classList.toggle('scrolled', window.scrollY > 60);
 });
-
-/* ==============================
-   MOBILE NAVIGATION
-   ============================== */
-
-function initMobileNav() {
-  const toggle = document.getElementById('nav-toggle');
-  const navPill = document.querySelector('.nav-pill');
-
-  if (!toggle || !navPill) return;
-
-  toggle.addEventListener('click', () => {
-    toggle.classList.toggle('active');
-    navPill.classList.toggle('active');
-  });
-
-  // Close nav when a link is clicked
-  navPill.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      toggle.classList.remove('active');
-      navPill.classList.remove('active');
-    });
-  });
-}
 
 /* ==============================
    TYPING ANIMATION — Hero tagline
@@ -247,3 +222,5 @@ function initThemeToggle() {
     localStorage.setItem('theme', theme);
   });
 }
+
+
